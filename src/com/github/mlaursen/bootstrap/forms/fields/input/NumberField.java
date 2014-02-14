@@ -32,5 +32,13 @@ public class NumberField extends TextField {
 		}
 		return valid;
 	}
+	
+	public void setValue(int i) {
+		super.setValue(i + "");
+	}
+	
+	public void setValue(double d) {
+		super.setValue(d + "");
+	}
 
 }
