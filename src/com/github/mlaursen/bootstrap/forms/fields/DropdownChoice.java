@@ -10,8 +10,8 @@ import java.util.List;
  */
 public interface DropdownChoice {
 
-	String getValue();
-	String getKey();
-	List<DropdownChoice> getAll();
+	String getDropdownValue();
+	String getDropdownKey();
+	List<DropdownChoice> getAllChoices();
 	
 }

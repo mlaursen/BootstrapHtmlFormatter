@@ -35,12 +35,12 @@ public class TextAction extends Dropdown implements CssAble {
 		Button b = new Button(getName());
 		b.setCss("btn dropdown-toggle");
 		b.setDataToggle("dropdown");
-		b.setValue(choices.get(choice).getValue() + " <span class=\"caret\"></span>");
+		b.setValue(choices.get(choice).getDropdownValue() + " <span class=\"caret\"></span>");
 		h += tab(3) + b.toHtml();
 		h += tab(3) + "<ul class=\"dropdown-menu\" id=\"" + getName() + "_list\">\n";
 		for(int i = 0; i < choices.size(); i++) {
 			DropdownChoice c = choices.get(i);
-			h += tab(4) + "<li><a href=\"#\" onclick=\"" + onclick + "\">" + c.getValue() + "</a></li>\n";
+			h += tab(4) + "<li><a href=\"#\" onclick=\"" + onclick + "\">" + c.getDropdownValue() + "</a></li>\n";
 			if(i == 0) 
 				h += tab(4) + "<li class=\"divider\"></li>\n";
 		}
@@ -109,11 +109,11 @@ public class TextAction extends Dropdown implements CssAble {
 		String val = f.getValue();
 		if(valid && BasicValidation.isNumber(val)) {
 			for(DropdownChoice c : getChoices()) {
-				if(c.getKey().equals(val)) {
+				if(c.getDropdownKey().equals(val)) {
 					return true;
 				}
 			}
-			f.addError(String.format("'%s' is an invalid choice.", getChoices().get(Integer.parseInt(val)).getValue()));
+			f.addError(String.format("'%s' is an invalid choice.", getChoices().get(Integer.parseInt(val)).getDropdownValue()));
 			return false;
 		}
 		return valid;

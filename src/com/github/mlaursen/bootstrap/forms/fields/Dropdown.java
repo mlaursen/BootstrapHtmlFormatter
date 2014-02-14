@@ -56,10 +56,10 @@ public class Dropdown implements Cleanable, Errorable, Labelable {
 			return false;
 		else {
 			for(DropdownChoice c : choices) {
-				if(c.getKey().equals(val))
+				if(c.getDropdownKey().equals(val))
 					return canBe0 || (!canBe0 && Integer.parseInt(val) > 0);
 			}
-			groupValue.addError(String.format("'%s' is an invalid choice.", choices.get(Integer.parseInt(val)).getValue()));
+			groupValue.addError(String.format("'%s' is an invalid choice.", choices.get(Integer.parseInt(val)).getDropdownValue()));
 			return false;
 		}
 	}
@@ -91,16 +91,16 @@ public class Dropdown implements Cleanable, Errorable, Labelable {
 		h += tab() + "<div class=\"input-append\">\n";
 		h += tab(2) + "<div class=\"btn-group\">\n";
 		h += tab(3) + String.format("<button id=\"%s\" class=\"btn dropdown-toggle\"", this.buttonId);
-		h += String.format(" data-toggle=\"dropdown\">%s", def.getValue());
+		h += String.format(" data-toggle=\"dropdown\">%s", def.getDropdownValue());
 		h += " <span class=\"caret\"></span></button>\n";
 		
-		groupValue.setValue(def.getKey());
+		groupValue.setValue(def.getDropdownKey());
 		h += tab(3) + groupValue.toHtml() + "\n";
 		h += tab(3) + String.format("<ul class=\"dropdown-menu\" id=\"%s\">\n", this.choicesId);
 		for (DropdownChoice c : choices) {
 			h += tab(4) + "<li><a href=\"#\"";
-			h += String.format(" id=\"id_%s\" onclick=\"%s(this)\">%s</a></li>\n", c.getKey(), onclick, c.getValue());
-			if (c.getValue().contains("Select"))
+			h += String.format(" id=\"id_%s\" onclick=\"%s(this)\">%s</a></li>\n", c.getDropdownKey(), onclick, c.getDropdownValue());
+			if (c.getDropdownValue().contains("Select"))
 				h += tab(4) + "<li class=\"divider\"></li>\n";
 		}
 		h += tab(3) + "</ul>\n";
@@ -154,7 +154,7 @@ public class Dropdown implements Cleanable, Errorable, Labelable {
 		}
 		catch(NumberFormatException e) {
 			for(int i = 0; i < choices.size(); i++)
-				if(choices.get(i).getValue().equals(num)) {
+				if(choices.get(i).getDropdownValue().equals(num)) {
 					setChosen(i);
 					return;
 				}
