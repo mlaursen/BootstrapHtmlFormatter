@@ -1,6 +1,7 @@
 package com.github.mlaursen.bootstrap.forms.fields.input;
 
 import com.github.mlaursen.bootstrap.forms.fields.errors.BasicValidation;
+import com.github.mlaursen.bootstrap.utils.Util;
 
 
 public class DateField extends TextField {
@@ -25,5 +26,9 @@ public class DateField extends TextField {
 			this.errors.add("must be a valid date. mm/dd/yyyy");
 		}
 		return valid;
+	}
+	
+	public void setValue(java.sql.Date d) {
+		super.setValue(Util.sqlDateToString(d));
 	}
 }

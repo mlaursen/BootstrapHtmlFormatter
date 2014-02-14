@@ -1,8 +1,18 @@
 package com.github.mlaursen.bootstrap.utils;
 
+import java.text.SimpleDateFormat;
 import java.util.Random;
 
 public class Util {
+	
+	/**
+	 * Creates a string of MM/dd/yyyy from a sql Date
+	 * @param d
+	 * @return
+	 */
+	public static String sqlDateToString(java.sql.Date d) {
+		return d == null ? "" : new SimpleDateFormat("MM/dd/yyyy").format(d);
+	}
 	
 	/**
 	 * Capitalize the first letter of each word in a string.
