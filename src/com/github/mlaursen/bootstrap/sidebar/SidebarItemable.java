@@ -8,11 +8,4 @@ public interface SidebarItemable {
 	 * @return	String name
 	 */
 	String getName();
-	
-	/**
-	 * The idnumber to be placed in the sidebar. "0" would display id_0.
-	 * The same id if it is a database object.
-	 * @return
-	 */
-	String getId();
 }

@@ -94,4 +94,15 @@ public class SidebarItemList<T extends SidebarItemable>  {
 		s += tab(4) + "</ul>";
 		return s;
 	}
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "SidebarItemList [" + (items != null ? "items=" + items + ", " : "")
+				+ (sidebarName != null ? "sidebarName=" + sidebarName + ", " : "") + (header != null ? "header=" + header + ", " : "")
+				+ (onclick != null ? "onclick=" + onclick + ", " : "") + (groupName != null ? "groupName=" + groupName : "") + "]";
+	}
+	
+	
 }
