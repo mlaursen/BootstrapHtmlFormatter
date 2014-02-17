@@ -81,4 +81,12 @@ public class ControlDropdownGroup extends ControlGroup {
 		d.addError(err);
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "ControlDropdownGroup [d=" + d + ", getId()=" + getId() + ", getName()=" + getName() + ", getValue()=" + getValue() + "]";
+	}
+
 }

@@ -118,4 +118,14 @@ public class TextAction extends Dropdown implements CssAble {
 		}
 		return valid;
 	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "TextAction [f=" + f + ", onclick=" + onclick + "]";
+	}
+	
+	
 }

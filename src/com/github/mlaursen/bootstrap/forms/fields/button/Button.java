@@ -71,4 +71,15 @@ public class Button extends HtmlField implements CssAble {
 	public void setCss(String css) {
 		this.css = css;
 	}
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Button [css=" + css + ", dataDismiss=" + dataDismiss + ", type=" + type + ", dataToggle=" + dataToggle + ", getName()="
+				+ getName() + ", getId()=" + getId() + ", getValue()=" + getValue() + "]";
+	}
+
+	
+	
 }

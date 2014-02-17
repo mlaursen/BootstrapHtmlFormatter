@@ -72,5 +72,15 @@ public abstract class InputField extends HtmlField implements Errorable, Cleanab
 		if(BasicValidation.isAtLeastXCharacters(getValue(), 1))
 			setValue(getValue().trim());
 	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "InputField [errors=" + errors + ", type=" + type + ", attrs=" + attrs + ", getName()=" + getName() + ", getId()=" + getId()
+				+ ", getValue()=" + getValue() + "]";
+	}
+	
 	
 }

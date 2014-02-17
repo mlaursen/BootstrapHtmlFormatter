@@ -27,5 +27,6 @@ public class HiddenField extends InputField {
 		}
 		return valid;
 	}
-
+	
+	
 }

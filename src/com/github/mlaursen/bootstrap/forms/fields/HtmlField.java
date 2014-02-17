@@ -46,4 +46,12 @@ public abstract class HtmlField implements HtmlFieldable {
 		return value;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "HtmlField [name=" + name + ", id=" + id + ", value=" + value + "]";
+	}
+
 }

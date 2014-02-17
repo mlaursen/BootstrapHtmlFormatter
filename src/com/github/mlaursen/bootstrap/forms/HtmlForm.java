@@ -12,6 +12,7 @@ import com.github.mlaursen.bootstrap.forms.fields.Cleanable;
 import com.github.mlaursen.bootstrap.forms.fields.ControlDropdownGroup;
 import com.github.mlaursen.bootstrap.forms.fields.ControlFieldGroup;
 import com.github.mlaursen.bootstrap.forms.fields.ControlGroup;
+import com.github.mlaursen.bootstrap.forms.fields.DropdownChoice;
 import com.github.mlaursen.bootstrap.forms.fields.Errorable;
 import com.github.mlaursen.bootstrap.forms.fields.HtmlFieldable;
 import com.github.mlaursen.bootstrap.forms.fields.button.Button;
@@ -344,4 +345,35 @@ public abstract class HtmlForm implements Htmlable {
 	public boolean isFromRequest(HttpServletRequest request) {
 		return request.getParameter(middlewareToken.getName()) != null;
 	}
+	
+	/**
+	 * Gets the key for a dropdown choice from the list of possible choices.
+	 * THis is if your dropdown choice is in the database and does not have 
+	 * a number as a primary key
+	 * @param choice
+	 * @param choices
+	 * @return
+	 */
+	protected String getDropdownKey(DropdownChoice choice, List<DropdownChoice> choices) {
+		String v = choice.getDropdownValue();
+		for(DropdownChoice c : choices) {
+			if(c.getDropdownValue().equals(v))
+				return c.getDropdownKey();
+		}
+		return "";
+	}
+	
+	
+	
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "HtmlForm [fields=" + fields + ", middlewareToken=" + middlewareToken + ", errors=" + errors + ", fieldKeys=" + fieldKeys
+				+ ", action=" + action + ", modalName=" + modalName + "]";
+	}
+	
+	
 }

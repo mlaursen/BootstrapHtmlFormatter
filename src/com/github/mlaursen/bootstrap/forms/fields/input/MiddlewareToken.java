@@ -49,4 +49,6 @@ public class MiddlewareToken extends HiddenField {
 		}
 		return valid;
 	}
+	
+	
 }

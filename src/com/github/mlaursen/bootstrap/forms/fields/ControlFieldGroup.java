@@ -3,6 +3,7 @@ package com.github.mlaursen.bootstrap.forms.fields;
 import static com.github.mlaursen.bootstrap.HtmlTab.tab;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.github.mlaursen.bootstrap.forms.fields.errors.FormError;
@@ -167,4 +168,12 @@ public class ControlFieldGroup extends ControlGroup {
 		}
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "ControlFieldGroup [fields=" + Arrays.toString(fields) + "]";
+	}
+	
 }

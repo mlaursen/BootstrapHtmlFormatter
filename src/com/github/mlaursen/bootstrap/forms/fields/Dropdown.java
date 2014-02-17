@@ -58,8 +58,17 @@ public class Dropdown implements Cleanable, Errorable, Labelable {
 			for(DropdownChoice c : choices) {
 				if(c.getDropdownKey().equals(val))
 					return canBe0 || (!canBe0 && Integer.parseInt(val) > 0);
+				else if(c.getDropdownValue().equals(val))
+					return !val.contains("your");
 			}
-			groupValue.addError(String.format("'%s' is an invalid choice.", choices.get(Integer.parseInt(val)).getDropdownValue()));
+			String err = "";
+			try {
+				err = String.format("'%s' is an invalid choice.", choices.get(Integer.parseInt(val)).getDropdownValue());
+			}
+			catch (NumberFormatException e) {
+				err = String.format("'%s' is an invalid choice.", val);
+			}
+			groupValue.addError(err);
 			return false;
 		}
 	}
@@ -94,7 +103,7 @@ public class Dropdown implements Cleanable, Errorable, Labelable {
 		h += String.format(" data-toggle=\"dropdown\">%s", def.getDropdownValue());
 		h += " <span class=\"caret\"></span></button>\n";
 		
-		groupValue.setValue(def.getDropdownKey());
+		groupValue.setValue(def.getDropdownValue());
 		h += tab(3) + groupValue.toHtml() + "\n";
 		h += tab(3) + String.format("<ul class=\"dropdown-menu\" id=\"%s\">\n", this.choicesId);
 		for (DropdownChoice c : choices) {
@@ -183,5 +192,14 @@ public class Dropdown implements Cleanable, Errorable, Labelable {
 	
 	public void addChoice(DropdownChoice c) {
 		choices.add(c);
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Dropdown [choices=" + choices + ", buttonId=" + buttonId + ", choicesId=" + choicesId + ", onclick=" + onclick + ", label="
+				+ label + ", groupValue=" + groupValue + ", chosen=" + chosen + ", canBe0=" + canBe0 + "]";
 	}
 }
