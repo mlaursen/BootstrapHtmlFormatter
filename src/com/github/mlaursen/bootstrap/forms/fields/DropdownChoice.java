@@ -13,7 +13,6 @@ public interface DropdownChoice {
 	String getDropdownValue();
 	String getDropdownKey();
 	void setDropdownKey(int k);
-	void setDropdownValue(String v);
 	List<DropdownChoice> getAllChoices();
 	
 }

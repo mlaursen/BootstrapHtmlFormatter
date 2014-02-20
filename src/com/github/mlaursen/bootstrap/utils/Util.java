@@ -34,7 +34,7 @@ public class Util {
 		String[] words = str.split(split);
 		String s = "";
 		for (String word : words) {
-			s += capitalizeFirstLetter(word) + " ";
+			s += word.length() > 0 ? (capitalizeFirstLetter(word) + " ") : "";
 		}
 		return s.trim();
 	}
